@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import honda from '../img/honda.png'
 
 export default function Car(props) {
+    const navigation = useNavigation(); 
 
     return (
         <View style={styles.container}>
@@ -12,8 +14,10 @@ export default function Car(props) {
             <View style={{ marginTop: 5, marginLeft: 3 }}>
                 <Text style={styles.text}>Available from: {props.time}12-5pm</Text>
                 <Text style={styles.text}>${props.price}75/hour</Text>
+                <Text style={styles.user}>Posted by {props.user}John Smith</Text>
             </View>
-            <Pressable style={styles.button}>
+            <Pressable style={styles.button}
+            onPress={() => navigation.navigate('Rent')}>
                 <Text style={styles.buttontext}>Rent Now</Text>
             </Pressable>
         </View>
@@ -39,6 +43,11 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 12
+    },
+    user: {
+        fontSize: 12,
+        color: '#9B9B9B',
+        marginTop: 5
     },
     button: {
         alignItems: 'center',

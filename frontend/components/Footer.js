@@ -1,15 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, Pressable, TouchableOpacity } from 'react-native';
+import { StyleSheet,  SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import add from '../img/add.png'
 import home from '../img/home.png'
 import user from '../img/User.png'
 
 export default function Footer() {
-    
+  
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <Image source={home} style={styles.image} />
       </TouchableOpacity>
       <TouchableOpacity>

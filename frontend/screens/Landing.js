@@ -1,12 +1,13 @@
 
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, Pressable } from 'react-native';
-import Checkbox from 'expo-checkbox';
+import CheckBox from '@react-native-community/checkbox';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 import logo from '../img/logo.png'
 
 export default function Landing({ navigation }) {
-
+  
     const [name, onChangeName] = useState("");
     const [city, onChangeCity] = useState("");
     const [isSelected, setSelection] = useState(false);
@@ -56,9 +57,22 @@ export default function Landing({ navigation }) {
             value={city}
             placeholder='Vancouver, BC'
           />
+            {/* <View style={styles.auto}>
+            <GooglePlacesAutocomplete
+              placeholder='Vancouver, BC'
+              onPress={(data, details = null) => {
+                // 'details' is provided when fetchDetails = true
+                console.log(data, details);
+              }}
+              query={{
+                key: process.env.GOOGLE_API_KEY,
+                language: 'en',
+              }}
+            />
+          </View> */}
         </View>
         <View style={styles.checkboxContainer}>
-          <Checkbox
+          <CheckBox
             value={isSelected}
             onValueChange={(newValue) => setSelection(newValue)}
             //color={isSelected ? '#4630EB' : undefined}
@@ -82,6 +96,11 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       //alignItems: 'center',
       backgroundColor: '#D97777'
+    },
+    auto: {
+      width: 340,
+      alignSelf: 'center',
+      marginTop: 10
     },
     center: {
       alignItems: 'center'
@@ -117,14 +136,15 @@ const styles = StyleSheet.create({
       height: 150
     },
     input: {
-      height: 40,
+      height: 44,
       marginLeft: 25,
       marginRight: 25,
       marginTop: 10,
       padding: 10,
       color: 'black',
       backgroundColor: 'white',
-      borderRadius: 10,
+      borderRadius: 6,
+      fontSize: 15
     },
     button: {
       alignItems: 'center',
@@ -133,11 +153,11 @@ const styles = StyleSheet.create({
       width: 190,
       borderRadius: 30,
       backgroundColor: 'white',
-      marginTop: 40
+      marginTop: 35
     },
     checkboxContainer: {
       flexDirection: "row",
-      marginTop: 20,
+      marginTop: 25,
       justifyContent: 'center'
     },
     checkbox: {

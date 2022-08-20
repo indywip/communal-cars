@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, Pressable, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Landing from './screens/Landing'
 import Home from './screens/Home'
+import Rent from './screens/Rent'
+import Confirmed from './screens/Confirmed'
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -16,6 +17,8 @@ const App = () => {
       }}>
         <Stack.Screen name="Landing" component={Landing} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Rent" component={Rent} />
+        <Stack.Screen name="Confirmed" component={Confirmed} />
       </Stack.Navigator>
     </NavigationContainer> 
   );

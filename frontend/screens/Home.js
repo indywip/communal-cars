@@ -19,7 +19,7 @@ export default function Home() {
                 fontColor='#A6A6A6'
                 iconColor='#A6A6A6'
                 placeholder="Search"
-                onPress={() => alert("onPress")}
+                //onPress={() => alert("onPress")}
                 // onChangeText={(text) => filterList(text)}
                 // onClearPress={() => filterList("")}
                 />
