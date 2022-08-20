@@ -18,7 +18,7 @@ export default function Footer() {
       <TouchableOpacity onPress={() => navigation.navigate('AddCar')}>
         <Image source={add} style={styles.add} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
         <Image source={user} style={styles.image} />
       </TouchableOpacity>
     </SafeAreaView>
