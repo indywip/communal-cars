@@ -1,9 +1,12 @@
 const User = require("../models/User");
 
 exports.createUser = (req, res) => {
-  const name = "Steven Gerrard";
-  const email = "test@test.com";
-  const city = "Toronto";
+  const name = "Harry Maguire";
+  const email = "test2@test2.com";
+  const city = "Montreal";
+  const phoneNumber = 5141112222;
+  const registeredVehicles = [];
+  const rentedVehicles = [];
 
   User.findOne({ email })
     .then((user) => {
@@ -17,6 +20,9 @@ exports.createUser = (req, res) => {
         name: name,
         email: email,
         city: city,
+        phoneNumber: phoneNumber,
+        registeredVehicles: registeredVehicles,
+        rentedVehicles: rentedVehicles
       });
       newUser.save().then((savedUser) => {
         res.status(200).send(savedUser);
