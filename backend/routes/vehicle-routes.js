@@ -19,5 +19,8 @@ Router.get('/get-vehicle/:vehicleId', vehicleController.getVehicle);
 // get vehicles registered by one specific user
 Router.get('/get-registered-vehicles/:userId', vehicleController.getRegisteredVehicles);
 
+// delete vehicles
+// attach both path paramters when claling the api
+Router.delete('/delete-vehicle/:vehicleId/:userId', vehicleController.deleteVehicle);
 
 module.exports = Router;

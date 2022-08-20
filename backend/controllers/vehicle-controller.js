@@ -99,7 +99,8 @@ exports.getVehicles = (req, res) => {
 };
 
 exports.getVehicle = (req, res) => {
-  // attach vehicleId to query parameter when calling the api
+  // attach vehicleId to path parameter when calling the api
+  // api/get-vehicle/vehicleId
   const vehicleId = req.params.vehicleId;
   Vehicle.findOne({ vehicleId: vehicleId })
     .then((vehicle) => {
@@ -120,11 +121,41 @@ exports.getVehicle = (req, res) => {
 
 exports.getRegisteredVehicles = (req, res) => {
   // get vehicles registered by a SPECIFIC user
-  // attach userId as query parameter when calling the api
+  // attach userId as path parameter when calling the api
+  // api/get-registered-vehicles/
   const userId = req.params.userId;
   Vehicle.find({ userId: userId })
     .then((vehicles) => {
       res.status(200).json(vehicles);
+    })
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ errorMessage: "internal server error has occured." });
+    });
+};
+
+exports.deleteVehicle = (req, res) => {
+  // attach vehicleId as path parameter when calling the api
+  // api/delete-vehicle/vehicleId/userId
+  const vehicleId = req.params.vehicleId;
+  const userId = req.params.userId;
+  Vehicle.findByIdAndDelete(vehicleId)
+    .then((result) => {
+      return User.findById(userId);
+    })
+    .then((user) => {
+      const updatedVehicles = user.registeredVehicles.filter((vehicle) => {
+        return vehicle.toString() !== vehicle.toString();
+      });
+      user.registeredVehicles = updatedVehicles;
+      return user.save();
+    })
+    .then((result) => {
+      res
+        .status(200)
+        .json({ successMessage: "Succesfully deleted the vehicle." });
     })
     .catch((err) => {
       console.log(err);
