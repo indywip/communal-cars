@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/Footer'
 import RegCar from '../components/RegisteredCar'
 import RenCar from '../components/RentedCar'
 import ProfilePic from '../img/User.png'
 
 export default function Profile() {
+
+    const navigation = useNavigation();
 
     // const name;
     // const location;
@@ -36,14 +39,10 @@ export default function Profile() {
                     </View>
                 </View>
                 <Text style={styles.subHeading}>Rented Vehicles</Text>
-                <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1 }}>
+                    <View>
                         <RenCar />
                     </View>
-                    <View style={{ flex: 1.15 }}>
-                        <RenCar />
-                    </View>
-                </View>
+
             </ScrollView>
             <Footer />
         </SafeAreaView>
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
         height: 55,
         marginRight: 10,
         marginLeft: 20,
-        marginTop:25
+        marginTop: 25
     },
 })
 

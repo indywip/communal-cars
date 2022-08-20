@@ -17,11 +17,11 @@ export default function Landing({ navigation }) {
         alert('Please enter your name and city');
         return;
       }
-      if (!city.trim() && name.trim()) {
+      if (!city.trim() && name.trim) {
         alert('Please enter your city');
         return;
       }
-      if (!name.trim() && city.trim()) {
+      if (!name.trim() && city.trim) {
         alert('Please enter your name');
         return;
       }
@@ -31,7 +31,7 @@ export default function Landing({ navigation }) {
         return;
       }
  
-      navigation.navigate('Profile');
+      navigation.navigate('Home');
   };
   
     return (
@@ -75,6 +75,7 @@ export default function Landing({ navigation }) {
           <CheckBox
             value={isSelected}
             onValueChange={(newValue) => setSelection(newValue)}
+            //color={isSelected ? '#4630EB' : undefined}
           />
           <Text style={styles.smalltext}>I agree with APPNAME’s terms and conditions</Text>
         </View>
