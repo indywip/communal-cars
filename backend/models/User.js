@@ -16,8 +16,22 @@ const userSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+  rentedVehicles: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Vehicle",
+      required: true,
+    },
+  ],
+  registeredVehicles: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Vehicle",
+      required: true,
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", userSchema);

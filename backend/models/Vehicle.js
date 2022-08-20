@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const carSchema = new Schema({
+const vehicleSchema = new Schema({
   brand: {
     type: String,
     required: true,
@@ -31,6 +31,10 @@ const carSchema = new Schema({
     ref: "User",
     required: true,
   },
+  isRented: {
+    type: Boolean,
+    required: true
+  }
 });
 
-module.exports = mongoose.model("Car", carSchema);
+module.exports = mongoose.model("Vehicle", vehicleSchema);
