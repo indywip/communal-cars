@@ -31,7 +31,7 @@ export default function Landing({ navigation }) {
         return;
       }
  
-      navigation.navigate('Home');
+      navigation.navigate('Profile');
   };
   
     return (
