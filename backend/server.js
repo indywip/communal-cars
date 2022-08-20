@@ -1,18 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-requrire("dotenv").config();
+require("dotenv").config();
+
+const userRoutes = require("./routes/user-routes");
+const carRoutes = require("./routes/car-routes");
 
 const MONGODB_URI = process.env.MONGODB_URI;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
-app.use(bodyParser.json())
+app.use(express.json());
 
-app.get("/api/create-user", (req, res) => {
-    res.send("test");
+app.get('/', (req, res) => {
+    res.send("Hello World");
 })
+
+app.use("/api", userRoutes);
+app.use("/api", carRoutes);
 
 mongoose
   .connect(MONGODB_URI)
