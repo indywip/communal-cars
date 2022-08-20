@@ -15,7 +15,9 @@ export default function Confirmed(props) {
             <ScrollView>
                 <Text style={styles.subtext}>Confirmed!</Text>
                 <Image source={honda} style={styles.image} />
-                <Text style={styles.medtext}>You have confirmed your rental of the {props.name}Honda A5 from {props.time}12pm - 5pm. Pick up the car at this location:</Text>
+                <View style={styles.padding}>
+                    <Text style={styles.medtext}>Your {props.name}Honda A5 rental from {props.time}12pm - 5pm is confirmed! Pick up the vehicle at:</Text>
+                </View>
                 <View style={styles.row}>
                     <Image source={pin} style={styles.icon} />
                     <Text style={styles.smalltext}>{props.address}1234 West Street, Vancouver, BC V6T1Z4</Text>
@@ -42,6 +44,10 @@ export default function Confirmed(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    padding: {
+        paddingLeft: 8,
+        paddingRight: 8
     },
     subtext: {
         textTransform: 'uppercase',
