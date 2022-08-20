@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const userRoutes = require("./routes/user-routes");
-const carRoutes = require("./routes/car-routes");
+const vehicleRoutes = require("./routes/vehicle-routes");
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const PORT = process.env.PORT || 8080;
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 app.use("/api", userRoutes);
-app.use("/api", carRoutes);
+app.use("/api", vehicleRoutes);
 
 mongoose
   .connect(MONGODB_URI)
