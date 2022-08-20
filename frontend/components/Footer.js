@@ -15,7 +15,7 @@ export default function Footer() {
       <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <Image source={home} style={styles.image} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('AddCar')}>
         <Image source={add} style={styles.add} />
       </TouchableOpacity>
       <TouchableOpacity>

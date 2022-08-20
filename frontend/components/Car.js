@@ -10,11 +10,11 @@ export default function Car(props) {
     return (
         <View style={styles.container}>
             <Image source={honda} style={styles.image} />
-            <Text style={styles.header}>{props.name} Honda A5</Text>
+            <Text style={styles.header}>{props.name}{props.model}</Text>
             <View style={{ marginTop: 5, marginLeft: 3 }}>
-                <Text style={styles.text}>Available from: {props.time}12-5pm</Text>
-                <Text style={styles.text}>${props.price}75/hour</Text>
-                <Text style={styles.user}>Posted by {props.user}John Smith</Text>
+                <Text style={styles.text}>Available from: {props.time}</Text>
+                <Text style={styles.text}>${props.price}</Text>
+                <Text style={styles.user}>Posted by {props.user}</Text>
             </View>
             <Pressable style={styles.button}
             onPress={() => navigation.navigate('Rent')}>
@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 15,
-        fontWeight: '600'
+        fontWeight: '600',
+        marginLeft: 3
     },
     text: {
         fontSize: 12
