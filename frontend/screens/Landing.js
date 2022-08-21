@@ -5,23 +5,29 @@ import CheckBox from '@react-native-community/checkbox';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 import logo from '../img/logo.png'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Landing({ navigation }) {
   
     const [name, onChangeName] = useState("");
     const [city, onChangeCity] = useState("");
     const [isSelected, setSelection] = useState(false);
+
+    const handleSubmit = async () => {
+      const user = { name: name, city: city }
+      await AsyncStorage.setItem('user', JSON.stringify(user));
+    }
   
     const checkTextInput = () => {
       if (!name.trim() && !city.trim()) {
         alert('Please enter your name and city');
         return;
-      }
-      if (!city.trim() && name.trim) {
+      } 
+      if (!city.trim() && name.trim()) {
         alert('Please enter your city');
         return;
       }
-      if (!name.trim() && city.trim) {
+      if (!name.trim() && city.trim()) {
         alert('Please enter your name');
         return;
       }
@@ -30,8 +36,9 @@ export default function Landing({ navigation }) {
         alert('Please agree to our terms and conditions');
         return;
       }
- 
-      navigation.navigate('Home');
+      
+      handleSubmit()
+      navigation.navigate('Profile');
   };
   
     return (
@@ -75,7 +82,6 @@ export default function Landing({ navigation }) {
           <CheckBox
             value={isSelected}
             onValueChange={(newValue) => setSelection(newValue)}
-            //color={isSelected ? '#4630EB' : undefined}
           />
           <Text style={styles.smalltext}>I agree with APPNAME’s terms and conditions</Text>
         </View>

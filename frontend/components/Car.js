@@ -14,7 +14,6 @@ export default function Car(props) {
             <View style={{ marginTop: 5, marginLeft: 3 }}>
                 <Text style={styles.text}>Available from: {props.time}</Text>
                 <Text style={styles.text}>${props.price}</Text>
-                <Text style={styles.user}>Posted by {props.user}</Text>
             </View>
             <Pressable style={styles.button}
             onPress={() => navigation.navigate('Rent')}>
@@ -44,11 +43,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 12
-    },
-    user: {
-        fontSize: 12,
-        color: '#9B9B9B',
-        marginTop: 5
     },
     button: {
         alignItems: 'center',
