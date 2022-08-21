@@ -2,14 +2,14 @@ const Vehicle = require("../models/Vehicle");
 const User = require("../models/User");
 
 exports.registerVehicle = (req, res) => {
-  const userId = "6301413c71f8d33ec937b741";
+  const userId = req.body.userId;
   // const userId = req.params.userId;
-  const brand = "Honda";
-  const model = "A5";
-  const notes = "Please make sure to return the car by the indicated time.";
-  const price = 50;
-  const availability = "12pm - 5pm"; // Not sure if I should store it as Date type or just a string.
-  const location = "Toronto";
+  const brand = req.body.brand;
+  const model = req.body.model;
+  const notes = req.body.notes;
+  const price = req.body.rate;
+  const availability = req.body.availability; // Not sure if I should store it as Date type or just a string.
+  const location = req.body.location;
   const newVehicle = Vehicle({
     brand: brand,
     model: model,
