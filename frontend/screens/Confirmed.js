@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, ScrollView, SafeAreaView } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/Footer'
 import honda from '../img/honda.png';
 import pin from '../img/pin.png'
 import send from '../img/send.png'
 
 export default function Confirmed(props) {
+    const navigation = useNavigation();
 
     const [text, onChangeText] = useState("");
 
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <Text style={styles.subtext}>CONFIRMED!</Text>
+                <Text style={styles.subtext}>Confirmed!</Text>
                 <Image source={honda} style={styles.image} />
                 <View style={styles.padding}>
                     <Text style={styles.medtext}>Your {props.name}Honda A5 rental from {props.time}12pm - 5pm is confirmed! Pick up the vehicle at:</Text>
@@ -26,7 +27,6 @@ export default function Confirmed(props) {
                 <Text style={styles.message}>Send the owner a message:</Text>
                 <View style={styles.box}>
                     <TextInput
-                        multiline
                         style={styles.input} 
                         onChangeText={(value) => onChangeText(value)}
                         value={text}
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         padding: 8,
-        marginTop: 12
+        marginTop: 12,
     },
     image: {
         width: 305,
