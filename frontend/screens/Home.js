@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        marginLeft: 20
+        marginLeft: 20,
+        marginBottom: 40
     }
 })
