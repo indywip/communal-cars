@@ -26,6 +26,7 @@ export default function Confirmed(props) {
                 <Text style={styles.message}>Send the owner a message:</Text>
                 <View style={styles.box}>
                     <TextInput
+                        multiline
                         style={styles.input} 
                         onChangeText={(value) => onChangeText(value)}
                         value={text}

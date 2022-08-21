@@ -13,7 +13,9 @@ export default function Profile() {
 
     const findUser = async () => {
         const result = await AsyncStorage.getItem('user')
-        setUser(JSON.parse(result))
+        if (result !== null) {
+            setUser(JSON.parse(result))
+        }
     }
 
     useEffect(() => {
