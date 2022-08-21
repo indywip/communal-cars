@@ -6,18 +6,18 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
+  // email: {
+  //   type: String,
+  //   required: true,
+  // },
   city: {
     type: String,
     required: true,
   },
-  phoneNumber: {
-    type: String,
-    required: true,
-  },
+  // phoneNumber: {
+  //   type: String,
+  //   required: true,
+  // },
   rentedVehicles: [
     {
       type: Schema.Types.ObjectId,
