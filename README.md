@@ -1,6 +1,6 @@
 # Communal Cars
 
-A mobile application where users can rent out their own cars or others' cars for a certain period of time, built using React Native. This was built for the Hack the 6ix 2022 hackathon and was awarded as a Top 8 finalist and the Most Creative Use of Twilio prize.
+A mobile application where users can rent out their own cars or others' cars for a certain period of time, built using React Native, Redux, Node.js (Express), MongoDB and Mongoose. This was built for the Hack the 6ix 2022 hackathon and was awarded as a Top 8 finalist and the Most Creative Use of Twilio prize.
 
 ![App screens](./frontend/img/apppics.png)
 
