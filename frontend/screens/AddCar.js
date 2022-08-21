@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Footer from '../components/Footer';
+import { useSelector } from 'react-redux';
 export default function AddCar() {
 
     const navigation = useNavigation(); 
@@ -16,22 +16,7 @@ export default function AddCar() {
     const [date, onChangeDate] = useState("");
     const [address, onChangeAddress] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [user, setUser] = useState({});
-    const [userId, onChangeUserId] = useState();
-
-    const findUser = async () => {
-        const result = await AsyncStorage.getItem('user')
-        if (result !== null) {
-            setUser(JSON.parse(result))
-        }
-    }
-
-    useEffect(() => {
-        findUser()
-        onChangeUserId(user._id)
-        console.log('userid', userId)
-    }, [])
-
+    const { userId } = useSelector(state => state.user);
 
     const ip = '192.168.0.101'
 
@@ -57,7 +42,6 @@ export default function AddCar() {
                 onChangeAvail('');
                 onChangeDate('');
                 onChangeAddress('');
-                onChangeUserId();
             }).catch(err => {
                 console.log('add car err',err);
             })

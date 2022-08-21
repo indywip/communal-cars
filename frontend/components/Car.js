@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import honda from '../img/honda.png'
+import pin from '../img/pin.png'
 
 export default function Car(props) {
     const navigation = useNavigation(); 
@@ -12,8 +13,12 @@ export default function Car(props) {
             <Image source={honda} style={styles.image} />
             <Text style={styles.header}>{props.name} {props.model}</Text>
             <View style={{ marginTop: 5, marginLeft: 3 }}>
-                <Text style={styles.text}>Available from: {props.time}</Text>
+                <Text style={styles.text}>Available from: {props.time} today</Text>
                 <Text style={styles.text}>${props.price}/hour</Text>
+                <View style={styles.row}>
+                    <Image style={styles.icon} source={pin} /> 
+                    <Text style={styles.user}>{props.date}</Text>
+                </View>
             </View>
             <Pressable style={styles.button}
             onPress={() => navigation.navigate('Rent')}>
@@ -34,6 +39,11 @@ const styles = StyleSheet.create({
         marginRight: 8,
         marginTop: 20
     },
+    row: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 2
+    },
     image: {
         width: 135,
         height: 90
@@ -45,6 +55,16 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 12
+    },
+    icon: {
+        width: 9,
+        height: 9,
+        fill: '#8C8C8C',
+        marginRight: 1.5
+    },
+    user: {
+        fontSize: 12,
+        color: '#8C8C8C'
     },
     button: {
         alignItems: 'center',

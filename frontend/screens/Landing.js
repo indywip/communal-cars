@@ -8,6 +8,8 @@ import axios from 'axios';
 import Profile from '../screens/Profile';
 import logo from '../img/logo.png'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch } from 'react-redux';
+import { updateUserId } from './redux/UserSlice';
 
 export default function Landing({ navigation }) {
   
@@ -16,6 +18,7 @@ export default function Landing({ navigation }) {
     const [isSelected, setSelection] = useState(false);
     const [user, SetUser] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch();
 
     const handleSubmit = async () => {
       const ip = '192.168.0.101'
@@ -37,6 +40,8 @@ export default function Landing({ navigation }) {
       setIsLoading(false);
 
       await AsyncStorage.setItem('user', JSON.stringify(user));
+      console.log(user._id)
+      dispatch(updateUserId(user._id))
       console.log('user',JSON.stringify(user))
     }
   
