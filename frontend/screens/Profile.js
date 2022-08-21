@@ -7,8 +7,7 @@ import RegCar from '../components/RegisteredCar'
 import RenCar from '../components/RentedCar'
 import ProfilePic from '../img/User.png'
 
-export default function Profile() {
-
+export default function Profile(props) {
     const [user, setUser] = useState({});
 
     const findUser = async () => {
@@ -31,10 +30,16 @@ export default function Profile() {
                     </View>
                     <View style={{ flexDirection: "column" }}>
                         <View style={{ flex: 1 }}>
-                            <Text style={styles.header}>{user.name}</Text>
+                            <Text style={styles.header}>
+                                {/* {user.name} */}
+                                {props.name}
+                            </Text>
                         </View>
                         <View style={{ flex: 1 }}>
-                            <Text style={styles.text}>{user.city}</Text>
+                            <Text style={styles.text}>
+                                {/* {user.city} */}
+                                {props.city}
+                            </Text>
                         </View>
                     </View>
                 </View>
@@ -55,7 +60,7 @@ export default function Profile() {
             <Footer />
         </SafeAreaView>
     );
-};
+}; 
 
 const styles = StyleSheet.create({
     container: {

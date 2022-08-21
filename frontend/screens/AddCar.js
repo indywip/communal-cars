@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import axios from "axios";
 
 import Footer from '../components/Footer';
-import Car from '../components/Car';
-
 export default function AddCar() {
 
     const navigation = useNavigation(); 
@@ -13,9 +12,41 @@ export default function AddCar() {
     const [notes, onChangeNotes] = useState("");
     const [rate, onChangeRate] = useState("");
     const [avail, onChangeAvail] = useState("");
+    const [date, onChangeDate] = useState("");
     const [address, onChangeAddress] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
-    const checkTextInput = () => {
+    const ip = '192.168.0.101'
+
+    const postCars = async () => {
+        setIsLoading(true);
+            const response = await axios.post(`http://${ip}:3000/api/vehicles/register-vehicle`, {
+                brand,
+                model,
+                notes,
+                rate,
+                avail,
+                date,
+                address
+            }).then(result => {
+                console.log('result',result.data);
+                alert(` You have created: ${JSON.stringify(result.data)}`);
+                setIsLoading(false);
+                onChangeBrand('');
+                onChangeModel('');
+                onChangeNotes('');
+                onChangeRate('');
+                onChangeAvail('');
+                onChangeDate('');
+                onChangeAddress('');
+            }).catch(err => {
+                console.log('err',err);
+            })
+        setIsLoading(false);
+        }
+
+
+    const checkTextInput = async (event) => {
         if (!brand.trim()) {
           alert('Please enter your car brand');
           return;
@@ -32,11 +63,16 @@ export default function AddCar() {
             alert('Please enter the time range your car can be rented');
             return;
         }
+        if (!date.trim()) {
+            alert('Please indicate what date your car can be rented');
+            return;
+        }
         if (!address.trim()) {
             alert('Please enter where your car will be picked up');
             return;
         }
 
+        postCars();
         navigation.navigate('Home');
     };
     
@@ -91,6 +127,15 @@ export default function AddCar() {
                             placeholder='12pm - 4pm'
                             onChangeText={(value) => onChangeAvail(value)}
                             value={avail}
+                        />
+                    </View>
+                    <View style={{ marginTop: 3 }}>
+                        <Text style={styles.text}>Date <Text style={{ color: 'red' }}>*</Text></Text>
+                        <TextInput
+                            style={styles.input}
+                            placeholder='August 20, 2022'
+                            onChangeText={(value) => onChangeDate(value)}
+                            value={date}
                         />
                     </View>
                     <Text style={styles.medtext}>Location</Text>

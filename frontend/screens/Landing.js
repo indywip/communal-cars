@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, Pressable } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import axios from 'axios';
 
+import Profile from '../screens/Profile';
 import logo from '../img/logo.png'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -12,8 +14,27 @@ export default function Landing({ navigation }) {
     const [name, onChangeName] = useState("");
     const [city, onChangeCity] = useState("");
     const [isSelected, setSelection] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async () => {
+      const ip = '192.168.0.101'
+
+      setIsLoading(true);
+          const response = await axios.post(`http://${ip}:3000/api/vehicles/register-vehicle`, {
+              name,
+              city
+          }).then(result => {
+              console.log('result',result.data);
+              alert(` You have created: ${JSON.stringify(result.data)}`);
+              setIsLoading(false);
+              onChangeName('');
+              onChangeCity('');
+          }).catch(err => {
+              console.log('err',err);
+          })
+      setIsLoading(false);
+
+
       const user = { name: name, city: city }
       await AsyncStorage.setItem('user', JSON.stringify(user));
     }
@@ -92,6 +113,7 @@ export default function Landing({ navigation }) {
             <Text style={styles.buttontext}>Get Started</Text>
           </Pressable>
         </View>
+          {/* <Profile style={{ display: 'none' }} name={name} city={city} /> */}
       </SafeAreaView>
     )
   }

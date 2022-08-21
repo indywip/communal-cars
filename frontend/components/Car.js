@@ -27,10 +27,11 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         width: 160,
-        marginLeft: 20, 
         marginTop: 30,
         borderRadius: 10,
-        padding: 12
+        padding: 12,
+        marginLeft: 8,
+        marginRight: 8
     },
     image: {
         width: 135,
