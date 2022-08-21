@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 app.use("/api", userRoutes);
-app.use("/api", vehicleRoutes);
+app.use("/api/vehicles", vehicleRoutes);
 
 mongoose
   .connect(MONGODB_URI)

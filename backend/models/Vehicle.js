@@ -12,15 +12,19 @@ const vehicleSchema = new Schema({
   },
   notes: {
     type: String,
-    required: true,
+    required: false,
   },
   availability: {
     type: String,
     required: true,
   },
-  price: {
+  rate: {
     type: String,
     required: true,
+  },
+  date: {
+    type: String,
+    required: true
   },
   location: {
     type: String,

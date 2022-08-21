@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Footer from '../components/Footer';
 export default function AddCar() {
@@ -11,10 +12,26 @@ export default function AddCar() {
     const [model, onChangeModel] = useState("");
     const [notes, onChangeNotes] = useState("");
     const [rate, onChangeRate] = useState("");
-    const [avail, onChangeAvail] = useState("");
+    const [availability, onChangeAvail] = useState("");
     const [date, onChangeDate] = useState("");
     const [address, onChangeAddress] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [user, setUser] = useState({});
+    const [userId, onChangeUserId] = useState();
+
+    const findUser = async () => {
+        const result = await AsyncStorage.getItem('user')
+        if (result !== null) {
+            setUser(JSON.parse(result))
+        }
+    }
+
+    useEffect(() => {
+        findUser()
+        onChangeUserId(user._id)
+        console.log('userid', userId)
+    }, [])
+
 
     const ip = '192.168.0.101'
 
@@ -25,9 +42,10 @@ export default function AddCar() {
                 model,
                 notes,
                 rate,
-                avail,
+                availability,
                 date,
-                address
+                address,
+                userId
             }).then(result => {
                 console.log('result',result.data);
                 alert(` You have created: ${JSON.stringify(result.data)}`);
@@ -39,12 +57,12 @@ export default function AddCar() {
                 onChangeAvail('');
                 onChangeDate('');
                 onChangeAddress('');
+                onChangeUserId();
             }).catch(err => {
-                console.log('err',err);
+                console.log('add car err',err);
             })
         setIsLoading(false);
         }
-
 
     const checkTextInput = async (event) => {
         if (!brand.trim()) {
@@ -59,7 +77,7 @@ export default function AddCar() {
           alert('Please enter your hourly rate');
           return;
         }
-        if (!avail.trim()) {
+        if (!availability.trim()) {
             alert('Please enter the time range your car can be rented');
             return;
         }
@@ -126,7 +144,7 @@ export default function AddCar() {
                             style={styles.input}
                             placeholder='12pm - 4pm'
                             onChangeText={(value) => onChangeAvail(value)}
-                            value={avail}
+                            value={availability}
                         />
                     </View>
                     <View style={{ marginTop: 3 }}>

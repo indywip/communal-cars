@@ -31,14 +31,12 @@ export default function Profile(props) {
                     <View style={{ flexDirection: "column" }}>
                         <View style={{ flex: 1 }}>
                             <Text style={styles.header}>
-                                {/* {user.name} */}
-                                {props.name}
+                                {user.name}
                             </Text>
                         </View>
                         <View style={{ flex: 1 }}>
                             <Text style={styles.text}>
-                                {/* {user.city} */}
-                                {props.city}
+                                {user.city}
                             </Text>
                         </View>
                     </View>

@@ -10,10 +10,10 @@ export default function Car(props) {
     return (
         <View style={styles.container}>
             <Image source={honda} style={styles.image} />
-            <Text style={styles.header}>{props.name}{props.model}</Text>
+            <Text style={styles.header}>{props.name} {props.model}</Text>
             <View style={{ marginTop: 5, marginLeft: 3 }}>
                 <Text style={styles.text}>Available from: {props.time}</Text>
-                <Text style={styles.text}>${props.price}</Text>
+                <Text style={styles.text}>${props.price}/hour</Text>
             </View>
             <Pressable style={styles.button}
             onPress={() => navigation.navigate('Rent')}>

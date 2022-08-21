@@ -14,18 +14,20 @@ export default function Landing({ navigation }) {
     const [name, onChangeName] = useState("");
     const [city, onChangeCity] = useState("");
     const [isSelected, setSelection] = useState(false);
+    const [user, SetUser] = useState({});
     const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async () => {
       const ip = '192.168.0.101'
 
       setIsLoading(true);
-          const response = await axios.post(`http://${ip}:3000/api/vehicles/register-vehicle`, {
+          const response = await axios.post(`http://${ip}:3000/api/create-user`, {
               name,
               city
           }).then(result => {
               console.log('result',result.data);
-              alert(` You have created: ${JSON.stringify(result.data)}`);
+              //alert(` You have created: ${JSON.stringify(result.data)}`);
+              SetUser(result.data)
               setIsLoading(false);
               onChangeName('');
               onChangeCity('');
@@ -34,9 +36,8 @@ export default function Landing({ navigation }) {
           })
       setIsLoading(false);
 
-
-      const user = { name: name, city: city }
       await AsyncStorage.setItem('user', JSON.stringify(user));
+      console.log('user',JSON.stringify(user))
     }
   
     const checkTextInput = () => {

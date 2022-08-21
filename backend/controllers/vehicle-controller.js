@@ -7,16 +7,18 @@ exports.registerVehicle = (req, res) => {
   const brand = req.body.brand;
   const model = req.body.model;
   const notes = req.body.notes;
-  const price = req.body.rate;
+  const rate = req.body.rate;
   const availability = req.body.availability; // Not sure if I should store it as Date type or just a string.
-  const location = req.body.location;
+  const date = req.body.date;
+  const location = req.body.address;
   const newVehicle = Vehicle({
     brand: brand,
     model: model,
     notes: notes,
-    price: price,
     availability: availability,
+    rate: rate,
     location: location,
+    date: date,
     userId: userId,
     isRented: false,
   });

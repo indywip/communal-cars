@@ -13,7 +13,7 @@ export default function Home(props) {
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setErrorFlag] = useState(false);
 
-    const ip = '192.168.0.101'
+    const ip = '192.168.0.101';
 
     const fetchCars = async () => {
         console.log('fetching cars');
@@ -23,7 +23,7 @@ export default function Home(props) {
             console.log('result',result.data);
             setCars(result.data??[]);
           }).catch(err => {
-            console.log('err',err);
+            console.log('get err',err);
           })
 
             setIsLoading(false);
@@ -53,7 +53,7 @@ export default function Home(props) {
                 />
                 <View style={styles.row}> 
                     {cars.map((list, index) => (
-                        <Car key={index} name={list.brand} model={list.model} time={list.availability} price={list.price} />
+                        <Car key={index} name={list.brand} model={list.model} time={list.availability} price={list.price} vehicleId={list._id} />
                     ))}
                 </View>
             </ScrollView>
