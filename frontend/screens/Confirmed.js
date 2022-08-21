@@ -13,7 +13,7 @@ export default function Confirmed(props) {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <Text style={styles.subtext}>Vehicle ‘Honda A5’ has been successfully removed from your profile.</Text>
+                <Text style={styles.subtext}>CONFIRMED!</Text>
                 <Image source={honda} style={styles.image} />
                 <View style={styles.padding}>
                     <Text style={styles.medtext}>Your {props.name}Honda A5 rental from {props.time}12pm - 5pm is confirmed! Pick up the vehicle at:</Text>
