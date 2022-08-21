@@ -48,7 +48,7 @@ export default function AddCar() {
                 <View>
                     <Text style={styles.medtext}>Basic Information</Text>
                     <View>
-                        <Text style={styles.text}>Brand<Text style={{ color: 'red' }}>*</Text></Text>
+                        <Text style={styles.text}>Brand <Text style={{ color: 'red' }}>*</Text></Text>
                         <TextInput
                             style={styles.input}
                             placeholder='Brand'
@@ -57,7 +57,7 @@ export default function AddCar() {
                         />
                     </View>
                     <View style={{ marginTop: 3 }}>
-                        <Text style={styles.text}>Model<Text style={{ color: 'red' }}>*</Text></Text>
+                        <Text style={styles.text}>Model <Text style={{ color: 'red' }}>*</Text></Text>
                         <TextInput
                             style={styles.input}
                             placeholder='Model'
@@ -76,7 +76,7 @@ export default function AddCar() {
                     </View>
                     <Text style={styles.medtext}>Rates and Availability</Text>
                     <View>
-                        <Text style={styles.text}>Rate<Text style={{ color: 'red' }}>*</Text></Text>
+                        <Text style={styles.text}>Rate <Text style={{ color: 'red' }}>*</Text></Text>
                         <TextInput
                             style={styles.input}
                             placeholder='$30/hour'
@@ -85,7 +85,7 @@ export default function AddCar() {
                         />
                     </View>
                     <View style={{ marginTop: 3 }}>
-                        <Text style={styles.text}>Availability<Text style={{ color: 'red' }}>*</Text></Text>
+                        <Text style={styles.text}>Availability <Text style={{ color: 'red' }}>*</Text></Text>
                         <TextInput
                             style={styles.input}
                             placeholder='12pm - 4pm'
@@ -95,7 +95,7 @@ export default function AddCar() {
                     </View>
                     <Text style={styles.medtext}>Location</Text>
                     <View>
-                        <Text style={styles.text}>Address<Text style={{ color: 'red' }}>*</Text></Text>
+                        <Text style={styles.text}>Address <Text style={{ color: 'red' }}>*</Text></Text>
                         <TextInput
                             style={styles.input}
                             placeholder='1234 Main Street, Vancouver, BC V6T1Z4'

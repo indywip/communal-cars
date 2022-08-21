@@ -8,6 +8,8 @@ import AddCar from './screens/AddCar'
 import Rent from './screens/Rent'
 import Confirmed from './screens/Confirmed'
 import Profile from './screens/Profile'
+import EditCar from './screens/EditCar'
+import Delete from './screens/Delete'
 
 
 const App = () => {
@@ -24,6 +26,8 @@ const App = () => {
         <Stack.Screen name="Rent" component={Rent} />
         <Stack.Screen name="Confirmed" component={Confirmed} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="EditCar" component={EditCar} />
+        <Stack.Screen name="Delete" component={Delete} />
       </Stack.Navigator>
     </NavigationContainer>
   );
