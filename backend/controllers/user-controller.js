@@ -7,14 +7,14 @@ exports.createUser = (req, res) => {
   const registeredVehicles = [];
   const rentedVehicles = [];
 
-  // User.findOne({ email })
-  //   .then((user) => {
-  // if user with this email already exists
-  // if (user) {
-  //   return res
-  //     .status(422)
-  //     .json({ alertMessage: "user with this email already exists!" });
-  // }
+  User.findOne({ name : name, city: city })
+    .then((user) => {
+  // if user already exists, login instead
+  if (user) {
+    return res
+      .status(422)
+      .json(user);
+  }
   const newUser = new User({
     name: name,
     city: city,
@@ -26,7 +26,7 @@ exports.createUser = (req, res) => {
     .then((savedUser) => {
       res.status(200).send(savedUser);
     })
-    // })
+    })
     .catch((err) => {
       console.log(err);
       res

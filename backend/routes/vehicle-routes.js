@@ -20,7 +20,11 @@ Router.get('/get-vehicle/:vehicleId', vehicleController.getVehicle);
 Router.get('/get-registered-vehicles/:userId', vehicleController.getRegisteredVehicles);
 
 // delete vehicles
-// attach both path paramters when claling the api
+// attach both path paramters when calling the api
 Router.delete('/delete-vehicle/:vehicleId/:userId', vehicleController.deleteVehicle);
+
+// edit vehicle
+// send vehicleId in the request body when calling the api
+Router.put('/edit-vehicle', vehicleController.editVehicle);
 
 module.exports = Router;

@@ -166,3 +166,37 @@ exports.deleteVehicle = (req, res) => {
         .json({ errorMessage: "internal server error has occured." });
     });
 };
+
+exports.editVehicle = (req, res) => {
+  // const userId = req.body.userId;
+  const vehicleId = req.body.vehicleId;
+  const brand = req.body.brand;
+  const model = req.body.model;
+  const notes = req.body.notes;
+  const rate = req.body.rate;
+  const availability = req.body.availability; // Not sure if I should store it as Date type or just a string.
+  const date = req.body.date;
+  const location = req.body.address;
+  Vehicle.findById(vehicleId)
+    .then((vehicle) => {
+      vehicle.brand = brand;
+      vehicle.model = model;
+      vehicle.notes = notes;
+      vehicle.rate = rate;
+      vehicle.availability = availability;
+      vehicle.date = date;
+      vehicle.location = location;
+      return vehicle.save();
+    })
+    .then((result) => {
+      res
+        .status(200)
+        .json({ successMessage: "Succesfully edited the vehicle." });
+    })
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ errorMessage: "internal server error has occured." });
+    });
+};
