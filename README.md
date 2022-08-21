@@ -37,3 +37,10 @@ For IOS:
 For Android: 
 
 `npm run android`
+
+<h2>Caution</h2>
+
+- To enable connecting to MongoDB database and use backend APIs through Axios, confidential MONGODB_URI with username and password is needed.
+
+
+- When calling the APIs from backend server, ip address should be replaced by one's own ip address to succesfully get the response.
