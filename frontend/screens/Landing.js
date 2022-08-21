@@ -9,7 +9,7 @@ import Profile from '../screens/Profile';
 import logo from '../img/logo.png'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch } from 'react-redux';
-import { updateUserId } from './redux/UserSlice';
+import { updateUserId } from '../redux/UserSlice';
 
 export default function Landing({ navigation }) {
   

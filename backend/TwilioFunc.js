@@ -1,5 +1,3 @@
-/*
-
 import { Client } from 'twilio-chat';
 
 export class TwilioService {
@@ -79,4 +77,3 @@ export class TwilioService {
     };
   }
 }
-*/
