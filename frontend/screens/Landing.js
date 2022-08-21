@@ -67,7 +67,8 @@ export default function Landing({ navigation }) {
       <SafeAreaView style={styles.container}>
         <View style={styles.center}>
           <Image source={logo} style={styles.image} />
-          <Text style={styles.header}>APPNAME</Text>
+          <Text style={styles.header}>CommunalCars</Text>
+          <Text style={styles.text}>We share, we CARe.</Text>
         </View>
         <View style={{ marginTop: 40 }}>
           <Text style={styles.text}>Name</Text>
@@ -105,7 +106,7 @@ export default function Landing({ navigation }) {
             value={isSelected}
             onValueChange={(newValue) => setSelection(newValue)}
           />
-          <Text style={styles.smalltext}>I agree with APPNAME’s terms and conditions</Text>
+          <Text style={styles.smalltext}>I agree with CommunalCars' terms and conditions</Text>
         </View>
         <View style={styles.center}>
           <Pressable style={styles.button} 
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
       fontSize: 16,
       color: 'white',
       whiteSpace: 'wrap',
-      maxWidth: 200,
+      maxWidth: 210,
       marginLeft: 8
     },
     image: {

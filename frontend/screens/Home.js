@@ -41,7 +41,7 @@ export default function Home(props) {
             <ScrollView>
                 <View style={styles.top}>
                     <Image source={small} style={styles.image} />
-                    <Text style={styles.header}>Appname</Text>
+                    <Text style={styles.header}>CommunalCars</Text>
                 </View>
                 <SearchBar style={{ marginTop: 15 }}
                 fontColor='#A6A6A6'

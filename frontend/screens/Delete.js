@@ -14,7 +14,7 @@ export default function Delete(props) {
             <ScrollView>
                 <Text style={styles.header}>Vehicle ‘Honda A5’ has been successfully removed from your profile.</Text>
                 <Image source={honda} style={styles.image} />
-                <Text style={styles.subtext}>We hope 'Honda A5' enjoyed their stay at APPNAME!</Text>
+                <Text style={styles.subtext}>We hope 'Honda A5' enjoyed their stay at CommunalCars!</Text>
                 <Pressable style={styles.button}
                     onPress={() => navigation.navigate('AddCar')}>
                     <Text style={styles.buttontext}>Add a New Vehicle</Text>
