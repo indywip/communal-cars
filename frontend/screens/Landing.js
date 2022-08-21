@@ -21,8 +21,6 @@ export default function Landing({ navigation }) {
     const dispatch = useDispatch();
 
     const handleSubmit = async () => {
-      const ip = '192.168.0.101'
-
       setIsLoading(true);
           const response = await axios.post(`http://${ip}:3000/api/create-user`, {
               name,

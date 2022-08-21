@@ -13,8 +13,6 @@ export default function Home(props) {
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setErrorFlag] = useState(false);
 
-    const ip = '192.168.0.101';
-
     const fetchCars = async () => {
         console.log('fetching cars');
           setIsLoading(true);

@@ -18,8 +18,6 @@ export default function AddCar() {
     const [isLoading, setIsLoading] = useState(false);
     const { userId } = useSelector(state => state.user);
 
-    const ip = '192.168.0.101'
-
     const postCars = async () => {
         setIsLoading(true);
             const response = await axios.post(`http://${ip}:3000/api/vehicles/register-vehicle`, {
