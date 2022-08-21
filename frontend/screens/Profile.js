@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import Footer from '../components/Footer'
 import RegCar from '../components/RegisteredCar'
 import RenCar from '../components/RentedCar'
@@ -7,8 +9,16 @@ import ProfilePic from '../img/User.png'
 
 export default function Profile() {
 
-    // const name;
-    // const location;
+    const [user, setUser] = useState({});
+
+    const findUser = async () => {
+        const result = await AsyncStorage.getItem('user')
+        setUser(JSON.parse(result))
+    }
+
+    useEffect(() => {
+        findUser()
+    }, [])
 
     return (
         <SafeAreaView style={styles.container}>
@@ -19,10 +29,10 @@ export default function Profile() {
                     </View>
                     <View style={{ flexDirection: "column" }}>
                         <View style={{ flex: 1 }}>
-                            <Text style={styles.header}>John Smith</Text>
+                            <Text style={styles.header}>{user.name}</Text>
                         </View>
                         <View style={{ flex: 1 }}>
-                            <Text style={styles.text}>Toronto, CA</Text>
+                            <Text style={styles.text}>{user.city}</Text>
                         </View>
                     </View>
                 </View>
