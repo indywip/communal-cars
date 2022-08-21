@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Pressable, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
 import Footer from '../components/Footer';
 import Car from '../components/Car';
 
 export default function AddCar() {
 
-    const navigation = useNavigation(); 
+    const navigation = useNavigation();
     const [brand, onChangeBrand] = useState("");
     const [model, onChangeModel] = useState("");
     const [notes, onChangeNotes] = useState("");
@@ -17,16 +16,16 @@ export default function AddCar() {
 
     const checkTextInput = () => {
         if (!brand.trim()) {
-          alert('Please enter your car brand');
-          return;
+            alert('Please enter your car brand');
+            return;
         }
         if (!model.trim()) {
-          alert('Please enter your car model');
-          return;
+            alert('Please enter your car model');
+            return;
         }
         if (!rate.trim()) {
-          alert('Please enter your hourly rate');
-          return;
+            alert('Please enter your hourly rate');
+            return;
         }
         if (!avail.trim()) {
             alert('Please enter the time range your car can be rented');
@@ -39,7 +38,7 @@ export default function AddCar() {
 
         navigation.navigate('Home');
     };
-    
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
@@ -104,17 +103,17 @@ export default function AddCar() {
                         />
                     </View>
                 </View>
-                <Pressable style={styles.button} 
+                <Pressable style={styles.button}
                     onPress={checkTextInput}>
-                        <Text style={styles.buttontext}>Register</Text>
-                    </Pressable>
+                    <Text style={styles.buttontext}>Register</Text>
+                </Pressable>
             </ScrollView>
             <Footer />
         </SafeAreaView>
     )
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1
     },
@@ -155,7 +154,7 @@ const styles=StyleSheet.create({
         color: 'black',
         backgroundColor: 'white',
         borderRadius: 6,
-        fontSize: 15
+        fontSize: 15,
     },
     button: {
         backgroundColor: 'black',
@@ -164,12 +163,12 @@ const styles=StyleSheet.create({
         borderRadius: 10,
         alignSelf: 'center',
         marginTop: 40,
-        marginBottom: 40
+        marginBottom: 40,
     },
     buttontext: {
         fontSize: 34,
-        fontWeight:'700',
+        fontWeight: '700',
         color: 'white',
-        textAlign: 'center',     
+        textAlign: 'center',
     }
 })

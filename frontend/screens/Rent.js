@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
         width: 200,
         borderRadius: 10,
         alignSelf: 'center',
-        marginTop: 25
+        marginTop: 25,
+        elevation: 5
     },
     buttontext: {
         fontSize: 34,

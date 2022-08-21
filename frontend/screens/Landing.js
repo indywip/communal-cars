@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, Pressable } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-
 import logo from '../img/logo.png'
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Landing({ navigation }) {
   
@@ -150,7 +149,8 @@ const styles = StyleSheet.create({
       color: 'black',
       backgroundColor: 'white',
       borderRadius: 6,
-      fontSize: 15
+      fontSize: 15,
+      elevation: 2
     },
     button: {
       alignItems: 'center',
@@ -159,12 +159,13 @@ const styles = StyleSheet.create({
       width: 190,
       borderRadius: 30,
       backgroundColor: 'white',
-      marginTop: 35
+      marginTop: 35,
+      elevation: 5
     },
     checkboxContainer: {
       flexDirection: "row",
       marginTop: 25,
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     checkbox: {
       alignSelf: "center",

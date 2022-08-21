@@ -90,7 +90,7 @@ export default function EditCar() {
                             <Text style={styles.buttontext}>EXIT</Text>
                         </Pressable>
                     </View>
-                    <View style={{ flex: 50}}>
+                    <View style={{ flex: 50 }}>
                         <Pressable style={styles.button}
                             onPress={() => navigation.navigate('Profile')}>
                             <Text style={styles.buttontext}>SAVE</Text>
@@ -144,7 +144,8 @@ const styles = StyleSheet.create({
         color: 'black',
         backgroundColor: 'white',
         borderRadius: 6,
-        fontSize: 15
+        fontSize: 15,
+        elevation: 3
     },
     button: {
         backgroundColor: 'black',
@@ -153,7 +154,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignSelf: 'center',
         marginTop: 40,
-        marginBottom: 40
+        marginBottom: 40,
+        elevation: 5
     },
     longbutton: {
         backgroundColor: '#D97777',
@@ -162,7 +164,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignSelf: 'center',
         marginTop: 15,
-        marginBottom: 40
+        marginBottom: 40,
+        elevation: 5
     },
     buttontext: {
         fontSize: 16,
