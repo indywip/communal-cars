@@ -43,15 +43,14 @@ export default function Profile() {
                     <View style={{ flex: 1 }}>
                         <RegCar />
                     </View>
-                    <View style={{ flex: 1.15 }}>
+                    {/* <View style={{ flex: 1.15 }}>
                         <RegCar />
-                    </View>
+                    </View> */}
                 </View>
                 <Text style={styles.subHeading}>Rented Vehicles</Text>
-                    <View>
-                        <RenCar />
-                    </View>
-
+                <View>
+                    <RenCar />
+                </View>
             </ScrollView>
             <Footer />
         </SafeAreaView>
