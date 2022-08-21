@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import honda from '../img/honda.png'
 
 export default function Car(props) {
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
@@ -13,7 +14,8 @@ export default function Car(props) {
                 <Text style={styles.text}>Available from: {props.time}12-5pm</Text>
                 <Text style={styles.text}>${props.price}75/hour</Text>
             </View>
-            <Pressable style={styles.button}>
+            <Pressable style={styles.button}
+                onPress={() => navigation.navigate('Confirmed')}>
                 <Text style={styles.buttontext}>View</Text>
             </Pressable>
         </View>
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         width: 160,
-        marginLeft: 25, 
+        marginLeft: 25,
         marginTop: 20,
         borderRadius: 10,
         padding: 12,

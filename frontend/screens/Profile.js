@@ -46,14 +46,10 @@ export default function Profile() {
                     </View>
                 </View>
                 <Text style={styles.subHeading}>Rented Vehicles</Text>
-                <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1 }}>
+                    <View>
                         <RenCar />
                     </View>
-                    <View style={{ flex: 1.15 }}>
-                        <RenCar />
-                    </View>
-                </View>
+
             </ScrollView>
             <Footer />
         </SafeAreaView>
@@ -91,7 +87,7 @@ const styles = StyleSheet.create({
         height: 55,
         marginRight: 10,
         marginLeft: 20,
-        marginTop:25
+        marginTop: 25
     },
 })
 
