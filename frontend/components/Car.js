@@ -14,7 +14,7 @@ export default function Car(props) {
             <Text style={styles.header}>{props.name} {props.model}</Text>
             <View style={{ marginTop: 5, marginLeft: 3 }}>
                 <Text style={styles.text}>Available from: {props.time} today</Text>
-                <Text style={styles.text}>${props.price}/hour</Text>
+                <Text style={styles.text}>${props.rate}/hour</Text>
                 <View style={styles.row}>
                     <Image style={styles.icon} source={pin} /> 
                     <Text style={styles.user}>{props.date}</Text>

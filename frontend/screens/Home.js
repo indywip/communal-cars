@@ -53,7 +53,7 @@ export default function Home(props) {
                 />
                 <View style={styles.row}> 
                     {cars.map((list, index) => (
-                        <Car key={index} name={list.brand} model={list.model} time={list.availability} date={list.location} price={list.price} vehicleId={list._id} />
+                        <Car key={index} name={list.brand} model={list.model} time={list.availability} date={list.location} rate={list.rate} vehicleId={list._id} />
                     ))}
                 </View>
             </ScrollView>
